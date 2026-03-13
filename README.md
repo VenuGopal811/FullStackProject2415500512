@@ -38,6 +38,7 @@ Set these environment variables in your hosting platform:
 
 - `SECRET_KEY`: required, use a long random value
 - `DATABASE_URL`: optional, defaults to local SQLite. For managed Postgres use a SQLAlchemy URL.
+- Python runtime: pinned in `.python-version` so hosts such as Render do not default to Python 3.14.
 
 Example PostgreSQL URL:
 
@@ -52,6 +53,10 @@ Use the Procfile command or configure the platform start command as:
 ```bash
 gunicorn wsgi:app
 ```
+
+## Render note
+
+If Render was previously trying to build with Python 3.14, redeploy after pulling the latest commit. This repository now pins Python `3.12.6` and uses a `psycopg` version that has compatible binary wheels.
 
 ## Notes
 
