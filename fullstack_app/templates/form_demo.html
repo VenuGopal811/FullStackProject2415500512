@@ -17,6 +17,7 @@
     {% endif %}
 
     <form method="post" action="{{ url_for('form_demo') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <div>
             <label for="name">Name</label>
             <input id="name" name="name" type="text" value="{{ submitted_name or '' }}" required>
